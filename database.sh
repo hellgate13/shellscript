@@ -1,1 +1,1 @@
-mysql -u root -p -h localhost
+mysql -u root -p -h localhost -A class
