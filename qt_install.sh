@@ -12,3 +12,4 @@ apt-get install mesa-common-dev -y
 ./qt-opensource-linux-x86-5.3.2.run
 ./qt-opensource-linux-x64-5.3.2.run
 
+rm -rf qt-opensource-linux-x*
