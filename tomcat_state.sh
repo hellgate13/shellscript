@@ -7,11 +7,11 @@ do
 	elif [ $COMMAND = 'q' ]
 		then break
 	elif [ $COMMAND = 'run' ]
-		then service tomcat7 start
+		then sudo service tomcat7 start
 	elif [ $COMMAND = 'restart' ]
-		then service tomcat7 restart
+		then sudo service tomcat7 restart
 	elif [ $COMMAND = 'stop' ] 
-		then service tomcat7 stop
+		then sudo service tomcat7 stop
 	else
 		echo not matched Command
 	fi
