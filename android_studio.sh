@@ -1,6 +1,9 @@
-DIR=`pwd`
+ScriptRoot=`pwd`
 
-cd /opt/android-studio/bin
-. studio.sh
+cd ../
 
-cd $DIR
+wget http://dl.google.com/android/android-sdk_r24.0.2-linux.tgz
+
+tar -vxf android-sdk_r24.0.2-linux.tgz
+
+cd $ScriptRoot 
