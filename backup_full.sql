@@ -25,13 +25,13 @@ DROP TABLE IF EXISTS `bank`;
 CREATE TABLE `bank` (
   `b_index` int(11) NOT NULL AUTO_INCREMENT,
   `id` text NOT NULL,
-  `name` text NOT NULL,
+  `b_name` text NOT NULL,
   `number` text NOT NULL,
   `owner` text NOT NULL,
   `cellphone` text NOT NULL,
   `address` text NOT NULL,
   PRIMARY KEY (`b_index`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `bank` (
 
 LOCK TABLES `bank` WRITE;
 /*!40000 ALTER TABLE `bank` DISABLE KEYS */;
-INSERT INTO `bank` VALUES (1,'user1@gmail.com','신한은행','11-1111-11','진석희','01088560532','경기도 성남시');
+INSERT INTO `bank` VALUES (1,'user1@gmail.com','????','11-1111-11','???','01088560532','??? ???');
 /*!40000 ALTER TABLE `bank` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -222,7 +222,7 @@ CREATE TABLE `schedule` (
   `station` text NOT NULL,
   `pay` text NOT NULL,
   PRIMARY KEY (`s_index`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -231,6 +231,7 @@ CREATE TABLE `schedule` (
 
 LOCK TABLES `schedule` WRITE;
 /*!40000 ALTER TABLE `schedule` DISABLE KEYS */;
+INSERT INTO `schedule` VALUES (1,'테스트 호텔 이름','','월 요 일','','','','5000');
 /*!40000 ALTER TABLE `schedule` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -246,7 +247,7 @@ CREATE TABLE `team` (
   `name` text,
   `decrp` text,
   PRIMARY KEY (`t_index`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -258,6 +259,32 @@ LOCK TABLES `team` WRITE;
 INSERT INTO `team` VALUES (3,'테스트팀','테스트용 팀');
 /*!40000 ALTER TABLE `team` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `work_ok`
+--
+
+DROP TABLE IF EXISTS `work_ok`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `work_ok` (
+  `w_index` int(11) NOT NULL AUTO_INCREMENT,
+  `user_index` int(11) NOT NULL,
+  `s_index` int(11) NOT NULL,
+  `state` text NOT NULL,
+  PRIMARY KEY (`w_index`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `work_ok`
+--
+
+LOCK TABLES `work_ok` WRITE;
+/*!40000 ALTER TABLE `work_ok` DISABLE KEYS */;
+INSERT INTO `work_ok` VALUES (1,1,1,'ok');
+/*!40000 ALTER TABLE `work_ok` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -268,4 +295,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-02-27 22:11:42
+-- Dump completed on 2016-02-29  7:26:28
