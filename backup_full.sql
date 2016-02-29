@@ -28,10 +28,10 @@ CREATE TABLE `bank` (
   `b_name` text NOT NULL,
   `number` text NOT NULL,
   `owner` text NOT NULL,
-  `cellphone` text NOT NULL,
+  `b_cellphone` text NOT NULL,
   `address` text NOT NULL,
   PRIMARY KEY (`b_index`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `bank` (
 
 LOCK TABLES `bank` WRITE;
 /*!40000 ALTER TABLE `bank` DISABLE KEYS */;
-INSERT INTO `bank` VALUES (1,'user1@gmail.com','????','11-1111-11','???','01088560532','??? ???');
+INSERT INTO `bank` VALUES (1,'user1@gmail.com','신한은행','11-1111-11','진석희','01088560532','경기도 성남시 수진동'),(5,'user2@gmail.com','진석희','qwer','1999-03-01','8807031626418','18');
 /*!40000 ALTER TABLE `bank` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -151,13 +151,13 @@ DROP TABLE IF EXISTS `parent`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `parent` (
   `p_index` int(11) NOT NULL AUTO_INCREMENT,
-  `id` text NOT NULL,
-  `information` text NOT NULL,
-  `s_name` text NOT NULL,
-  `p_name` text NOT NULL,
-  `cellphone` text NOT NULL,
+  `id` text,
+  `information` text,
+  `s_name` text,
+  `p_name` text,
+  `p_cellphone` text,
   PRIMARY KEY (`p_index`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -166,6 +166,7 @@ CREATE TABLE `parent` (
 
 LOCK TABLES `parent` WRITE;
 /*!40000 ALTER TABLE `parent` DISABLE KEYS */;
+INSERT INTO `parent` VALUES (2,'user2@gmail.com','null','null',NULL,NULL);
 /*!40000 ALTER TABLE `parent` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -190,9 +191,10 @@ CREATE TABLE `profile` (
   `state` text NOT NULL,
   `gender` text NOT NULL,
   `permission` text NOT NULL,
+  `team` text,
   `signup` text NOT NULL,
   PRIMARY KEY (`u_index`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -201,7 +203,7 @@ CREATE TABLE `profile` (
 
 LOCK TABLES `profile` WRITE;
 /*!40000 ALTER TABLE `profile` DISABLE KEYS */;
-INSERT INTO `profile` VALUES (1,'user1@gmail.com','qq','진석희','1988/07/03','8807031626418','29','01088560532','아주대','IoT','재학','남자','root','2016/02/26');
+INSERT INTO `profile` VALUES (1,'user1@gmail.com','qq','진석희','1988-07-03','','29','01088560532','아주대','IoT','재학','남자','관리자','','2016-02-26'),(10,'user2@gmail.com','qwer','진석희','1999-03-01','8807031626418','18','01088560532','아주대','모바일융합','재학','남자','정회원','없음','2016-02-29');
 /*!40000 ALTER TABLE `profile` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -269,11 +271,11 @@ DROP TABLE IF EXISTS `work_ok`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `work_ok` (
   `w_index` int(11) NOT NULL AUTO_INCREMENT,
-  `user_index` int(11) NOT NULL,
-  `s_index` int(11) NOT NULL,
-  `state` text NOT NULL,
+  `user_index` int(11) DEFAULT NULL,
+  `s_index` int(11) DEFAULT NULL,
+  `state` text,
   PRIMARY KEY (`w_index`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -282,7 +284,7 @@ CREATE TABLE `work_ok` (
 
 LOCK TABLES `work_ok` WRITE;
 /*!40000 ALTER TABLE `work_ok` DISABLE KEYS */;
-INSERT INTO `work_ok` VALUES (1,1,1,'ok');
+INSERT INTO `work_ok` VALUES (1,10,1,'대기중'),(2,1,1,'대기중');
 /*!40000 ALTER TABLE `work_ok` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -295,4 +297,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-02-29  7:26:28
+-- Dump completed on 2016-02-29 18:44:38
