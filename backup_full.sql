@@ -40,7 +40,6 @@ CREATE TABLE `bank` (
 
 LOCK TABLES `bank` WRITE;
 /*!40000 ALTER TABLE `bank` DISABLE KEYS */;
-INSERT INTO `bank` VALUES (1,'user1@gmail.com','신한은행','11-1111-11','진석희','01088560532','경기도 성남시 수진동'),(5,'user2@gmail.com','진석희','qwer','1999-03-01','8807031626418','18');
 /*!40000 ALTER TABLE `bank` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -62,7 +61,6 @@ CREATE TABLE `best` (
 
 LOCK TABLES `best` WRITE;
 /*!40000 ALTER TABLE `best` DISABLE KEYS */;
-INSERT INTO `best` VALUES ('무드');
 /*!40000 ALTER TABLE `best` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -76,9 +74,10 @@ DROP TABLE IF EXISTS `chat`;
 CREATE TABLE `chat` (
   `c_index` int(11) NOT NULL AUTO_INCREMENT,
   `name` text NOT NULL,
+  `toChat` text NOT NULL,
   `fromChat` text NOT NULL,
   PRIMARY KEY (`c_index`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -87,7 +86,6 @@ CREATE TABLE `chat` (
 
 LOCK TABLES `chat` WRITE;
 /*!40000 ALTER TABLE `chat` DISABLE KEYS */;
-INSERT INTO `chat` VALUES (1,'테스트 채팅방','user2@gmail.com');
 /*!40000 ALTER TABLE `chat` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -112,8 +110,32 @@ CREATE TABLE `hotel` (
 
 LOCK TABLES `hotel` WRITE;
 /*!40000 ALTER TABLE `hotel` DISABLE KEYS */;
-INSERT INTO `hotel` VALUES (1,'테스트 호텔 이름','테스트 호텔 이름');
 /*!40000 ALTER TABLE `hotel` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `memo`
+--
+
+DROP TABLE IF EXISTS `memo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `memo` (
+  `m_index` int(11) NOT NULL AUTO_INCREMENT,
+  `toMemo` text,
+  `fromMemo` text,
+  `msg` text,
+  PRIMARY KEY (`m_index`)
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `memo`
+--
+
+LOCK TABLES `memo` WRITE;
+/*!40000 ALTER TABLE `memo` DISABLE KEYS */;
+/*!40000 ALTER TABLE `memo` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -129,7 +151,7 @@ CREATE TABLE `message` (
   `fromChat` text NOT NULL,
   `msg` text NOT NULL,
   PRIMARY KEY (`m_index`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -138,7 +160,6 @@ CREATE TABLE `message` (
 
 LOCK TABLES `message` WRITE;
 /*!40000 ALTER TABLE `message` DISABLE KEYS */;
-INSERT INTO `message` VALUES (1,'user1@gmail.com','user2@gmail.com','test(유저->관리자)'),(2,'test','user1@gmail.com','test(관리자->유저)');
 /*!40000 ALTER TABLE `message` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -166,7 +187,6 @@ CREATE TABLE `parent` (
 
 LOCK TABLES `parent` WRITE;
 /*!40000 ALTER TABLE `parent` DISABLE KEYS */;
-INSERT INTO `parent` VALUES (2,'user2@gmail.com','null','null',NULL,NULL);
 /*!40000 ALTER TABLE `parent` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -203,7 +223,6 @@ CREATE TABLE `profile` (
 
 LOCK TABLES `profile` WRITE;
 /*!40000 ALTER TABLE `profile` DISABLE KEYS */;
-INSERT INTO `profile` VALUES (1,'user1@gmail.com','qq','진석희','1988-07-03','','29','01088560532','아주대','IoT','재학','남자','관리자','','2016-02-26'),(10,'user2@gmail.com','qwer','진석희','1999-03-01','8807031626418','18','01088560532','아주대','모바일융합','재학','남자','정회원','없음','2016-02-29');
 /*!40000 ALTER TABLE `profile` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -233,7 +252,6 @@ CREATE TABLE `schedule` (
 
 LOCK TABLES `schedule` WRITE;
 /*!40000 ALTER TABLE `schedule` DISABLE KEYS */;
-INSERT INTO `schedule` VALUES (1,'테스트 호텔 이름','','월 요 일','','','','5000');
 /*!40000 ALTER TABLE `schedule` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -258,8 +276,31 @@ CREATE TABLE `team` (
 
 LOCK TABLES `team` WRITE;
 /*!40000 ALTER TABLE `team` DISABLE KEYS */;
-INSERT INTO `team` VALUES (3,'테스트팀','테스트용 팀');
 /*!40000 ALTER TABLE `team` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `uuid`
+--
+
+DROP TABLE IF EXISTS `uuid`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `uuid` (
+  `u_index` int(11) NOT NULL AUTO_INCREMENT,
+  `id` text,
+  `uuid` text,
+  PRIMARY KEY (`u_index`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `uuid`
+--
+
+LOCK TABLES `uuid` WRITE;
+/*!40000 ALTER TABLE `uuid` DISABLE KEYS */;
+/*!40000 ALTER TABLE `uuid` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -284,7 +325,6 @@ CREATE TABLE `work_ok` (
 
 LOCK TABLES `work_ok` WRITE;
 /*!40000 ALTER TABLE `work_ok` DISABLE KEYS */;
-INSERT INTO `work_ok` VALUES (1,10,1,'대기중'),(2,1,1,'대기중');
 /*!40000 ALTER TABLE `work_ok` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -297,4 +337,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-02-29 18:44:38
+-- Dump completed on 2016-03-02  1:11:57
